@@ -9,6 +9,7 @@
 		<module>Refactoring</module>
 		<module>CleanCode</module>
 		<module>DesignPatterns</module>
+		<module>TestDriven</module>
 	</modules>
 	<build>
 		<plugins>
