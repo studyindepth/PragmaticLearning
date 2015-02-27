@@ -12,4 +12,9 @@ public abstract class ShapeDecorator implements Shape {
         decoratedShape.draw();
     }
 
+    @Override
+    public String toString() {
+        return decoratedShape.toString();
+    }
+
 }

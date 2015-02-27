@@ -1,8 +1,8 @@
 package design.patterns.decorator;
 
-public class RedShapeDecorator extends ShapeDecorator {
+public class RedBorderShapeDecorator extends ShapeDecorator {
 
-    public RedShapeDecorator(Shape shape) {
+    public RedBorderShapeDecorator(Shape shape) {
         super(shape);
     }
 
@@ -15,5 +15,7 @@ public class RedShapeDecorator extends ShapeDecorator {
     private void setRedBorder(Shape shape) {
         System.out.println("Red border " + shape);
     }
+    
+    
 
 }
