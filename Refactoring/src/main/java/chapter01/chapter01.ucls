@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.8" icons="true" automaticImage="JPEG" always-add-relationships="true" generalizations="true" 
-  realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
+<class-diagram version="1.1.8" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
   <class id="1" language="java" name="refactoring.chapter01.Customer" project="effective-java" 
     file="/effective-java/src/main/java/refactoring/chapter01/Customer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="147" y="165"/>    
@@ -64,64 +64,64 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="8">    
+  <dependency id="8">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="10">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="12">    
     <end type="SOURCE" refId="2" navigable="false" variant="ASSOCIATION">      
-      <attribute id="9" name="price">        
+      <attribute id="13" name="price">        
         <position height="0" width="0" x="79" y="0"/>      
       </attribute>      
-      <multiplicity id="10" minimum="0" maximum="1">        
+      <multiplicity id="14" minimum="0" maximum="1">        
         <position height="0" width="0" x="79" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true" variant="ASSOCIATION"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="11">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <dependency id="12">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
-  <association id="13">    
-    <end type="SOURCE" refId="3" navigable="false" variant="ASSOCIATION">      
-      <attribute id="14" name="movie">        
-        <position height="0" width="0" x="-175" y="134"/>      
-      </attribute>      
-      <multiplicity id="15" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-175" y="134"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true" variant="ASSOCIATION"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <dependency id="17">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <dependency id="19">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="20">    
+  <association id="15">    
     <end type="SOURCE" refId="1" navigable="false" variant="ASSOCIATION">      
-      <attribute id="21" name="rentals">        
+      <attribute id="16" name="rentals">        
         <position height="0" width="0" x="-316" y="-5"/>      
       </attribute>      
-      <multiplicity id="22" minimum="0" maximum="2147483647">        
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="-316" y="-5"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="20">    
+    <end type="SOURCE" refId="3" navigable="false" variant="ASSOCIATION">      
+      <attribute id="21" name="movie">        
+        <position height="0" width="0" x="-175" y="134"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-175" y="134"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true" variant="ASSOCIATION"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
