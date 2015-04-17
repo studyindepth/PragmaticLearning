@@ -11,6 +11,7 @@
 		<module>DesignPatterns</module>
 		<module>TestDriven</module>
 		<module>JCIP</module>
+		<module>JavaNetwork</module>
 	</modules>
 
 	<dependencies>
