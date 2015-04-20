@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="log-path">log</Property>
+	</Properties>
+	<Appenders>
+		<Console name="console-log" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+		</Console>
+		<Async name="console-async" bufferSize="65536">
+			<AppenderRef ref="console-log" />
+		</Async>
+		<RollingFile name="debug-log" fileName="${log-path}/debug.log"
+			filePattern="${log-path}/debug-%i.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d %p %c{1} [%t] %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 kB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+		<Async name="debug-async" bufferSize="65536">
+			<AppenderRef ref="debug-log" />
+		</Async>
+		<RollingFile name="error-log" fileName="${log-path}/error.log"
+			filePattern="${log-path}/error-%i.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d %p %c{1} [%t] %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 kB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+		<Async name="error-async" bufferSize="65536">
+			<AppenderRef ref="error-log" />
+		</Async>
+	</Appenders>
+	<Loggers>
+		<Logger name="log4j2" level="debug" additivity="false">
+			<AppenderRef ref="console-async" level="debug" />
+			<AppenderRef ref="debug-async" level="debug" />
+			<AppenderRef ref="error-async" level="error" />
+		</Logger>
+		<Logger name="org.hibernate" additivity="false">
+			<appender-ref ref="debug-async" level="debug" />
+		</Logger>
+
+		<Logger name="log4j.logger.org.hibernate" additivity="false">
+			<appender-ref ref="debug-async" level="debug" />
+		</Logger>
+		<Root level="info" additivity="false">
+			<AppenderRef ref="console-log" />
+		</Root>
+	</Loggers>
+</Configuration>

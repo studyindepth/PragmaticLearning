@@ -13,6 +13,7 @@
 		<module>JCIP</module>
 		<module>JavaNetwork</module>
 		<module>Algorithms</module>
+		<module>EffectiveJava</module>
 	</modules>
 
 	<dependencies>

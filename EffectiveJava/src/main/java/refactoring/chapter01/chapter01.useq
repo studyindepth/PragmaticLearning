@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.8" icons="true">  
+  <object id="1" language="java" name="refactoring.chapter01.Main" project="effective-java" 
+    file="/effective-java/src/main/java/refactoring/chapter01/Main.java" binary="false" label="main" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="25" y="0"/>    
+    <execution id="2">      
+      <position height="341" width="96" x="5" y="78"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="refactoring.chapter01.Customer" project="effective-java" 
+    file="/effective-java/src/main/java/refactoring/chapter01/Customer.java" binary="false" label="customer" 
+    type="class" autoSize="false">    
+    <position height="241" width="250" x="100" y="0"/>    
+    <execution id="4">      
+      <position height="299" width="96" x="105" y="99"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="105" width="246" x="105" y="131"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="105" width="246" x="105" y="272"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="refactoring.chapter01.Rental" project="effective-java" 
+    file="/effective-java/src/main/java/refactoring/chapter01/Rental.java" binary="false" label="rental" type="class" 
+    autoSize="false">    
+    <position height="211" width="238" x="200" y="0"/>    
+    <execution id="11">      
+      <position height="63" width="234" x="355" y="152"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="63" width="234" x="355" y="293"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="refactoring.chapter01.Movie" project="effective-java" 
+    file="/effective-java/src/main/java/refactoring/chapter01/Movie.java" binary="false" label="movie" type="class" 
+    autoSize="false">    
+    <position height="99" width="271" x="407" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="267" x="593" y="173"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="267" x="593" y="314"/>    
+    </execution>  
+  </object>  
+  <note id="20">    
+    <position height="43" width="89" x="81" y="156"/>    
+    <background red="255" green="255" blue="255"/>    
+    <text><![CDATA[For all rentals
+    
+    ]]>
+    </text>  
+  </note>  
+  <message id="3" operation="statement():java.lang.String">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="getTotalCharge():double">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="getTotalFrequentRenterPoints():int">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getCharge():double">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="getFrequentRenterPoints():int">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="15" operation="getCharge(int):double">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="getCharge(int):double">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <text-link id="21">    
+    <link-end type="SOURCE" refId="20"/>    
+    <link-end type="TARGET" refId="12"/>  
+  </text-link>  
+  <text-link id="22">    
+    <link-end type="SOURCE" refId="20"/>    
+    <link-end type="TARGET" refId="10"/>  
+  </text-link>
+</sequence-diagram>
