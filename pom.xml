@@ -12,6 +12,7 @@
 		<module>TestDriven</module>
 		<module>JCIP</module>
 		<module>JavaNetwork</module>
+		<module>Algorithms</module>
 	</modules>
 
 	<dependencies>
