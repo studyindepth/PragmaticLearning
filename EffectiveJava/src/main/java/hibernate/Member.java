@@ -1,15 +1,12 @@
 package hibernate;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity(name = "member")
-
 public class Member extends LogicalEntity {
 
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -21,6 +18,8 @@ public class Member extends LogicalEntity {
 
     @Column(name = "email")
     private String email;
+
+    private FirstName firstName;
 
     public String getName() {
         return name;
@@ -38,12 +37,33 @@ public class Member extends LogicalEntity {
         this.email = email;
     }
 
-//    public int getMemberId() {
-//        return memberId;
-//    }
-//
-//    public void setMemberId(int memberId) {
-//        this.memberId = memberId;
-//    }
+    @Column(name = "fist")
+    public String getFist() {
+        return firstName.getFist();
+    }
+
+    public void setFist(String fist) {
+        firstName.setFist(fist);
+    }
+
+    public int hashCode() {
+        return firstName.hashCode();
+    }
+
+    public boolean equals(Object obj) {
+        return firstName.equals(obj);
+    }
+
+    public String toString() {
+        return firstName.toString();
+    }
+
+    public FirstName getFullName() {
+        return firstName;
+    }
+
+    public void setFullName(FirstName firstName) {
+        this.firstName = firstName;
+    }
 
 }

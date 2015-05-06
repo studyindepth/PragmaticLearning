@@ -9,8 +9,9 @@ public class InheritanceMapping {
         Member member = new Member();
         member.setName("toan");
         member.setEmail("email");
-        
+        member.setFullName(new FirstName("do", "toan"));
         UserDAO dao = new UserDAO();
         dao.saveMember(member);
+
     }
 }
