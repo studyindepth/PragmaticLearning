@@ -21,7 +21,7 @@ public class TransactionSopingTest {
         @Override
         public void run() {
             service.createUserAndFirstPost("toan", "transaction scoping");
-            //service.findAll();
+            service.findAll();
         }
 
     }
