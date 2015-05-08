@@ -1,11 +1,11 @@
 package hibernate.transaction_concurrency.well;
 
-import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
-    public UserDaoImpl(Session session) {
-        super(session);
+    public UserDaoImpl(SessionFactory sf) {
+        super(sf);
     }
 
     @Override

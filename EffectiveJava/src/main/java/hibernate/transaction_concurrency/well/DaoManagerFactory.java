@@ -7,7 +7,11 @@ import java.lang.reflect.InvocationTargetException;
 public class DaoManagerFactory {
     private static DaoManager<? extends CrubDao<?>> daoManager;
     static {
-        Constructor<?>[] cxtors = DaoManager.class.getConstructors();
+        Constructor<?>[] cxtors = DaoManager.class.getDeclaredConstructors();
+        System.out.println(cxtors.length);
+        for (Constructor<?> constructor : cxtors) {
+            System.out.println(constructor);
+        }
         cxtors[0].setAccessible(true);
         try {
             daoManager = (DaoManager<? extends CrubDao<?>>) cxtors[0].newInstance();

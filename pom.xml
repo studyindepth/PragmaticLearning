@@ -14,6 +14,8 @@
 		<module>JavaNetwork</module>
 		<module>Algorithms</module>
 		<module>EffectiveJava</module>
+		<module>domain-driven-design</module>
+		<module>SpringBoots</module>
 	</modules>
 
 	<dependencies>

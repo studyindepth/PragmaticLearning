@@ -17,22 +17,23 @@ import org.hibernate.cfg.Configuration;
 public class DaoManager<D> {
     private final SessionFactory sf;
     private final ConcurrentMap<String, D> dao = new ConcurrentHashMap<>();
-    private static final Map<Class<?>, Class<?>> daoTypes = new EnumMap(Class.class);
-    static {
-        daoTypes.put(UserDao.class, UserDaoImpl.class);
-    }
+    private final Map<Class, Class> daoTypes = new ConcurrentHashMap<>();
 
     private DaoManager() {
         Configuration configuration = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration
                 .getProperties());
         sf = configuration.buildSessionFactory(builder.build());
+        System.out.println(daoTypes);
+        daoTypes.put(UserDao.class, UserDaoImpl.class);
     }
 
-    public D getDao(Class<D> type) {
+    public D getDao(Class<?> type) {
         D d = dao.get(type.getCanonicalName());
-        if (dao == null) {
+        System.out.println(d);
+        if (d == null) {
             d = newDaoInstance(daoTypes.get(type));
+            System.out.println("=============>" + d);
             dao.putIfAbsent(type.getCanonicalName(), d);
         }
         return d;
@@ -43,7 +44,8 @@ public class DaoManager<D> {
         Constructor<?>[] cxtors = type.getConstructors();
         cxtors[0].setAccessible(true);
         try {
-            return (D) cxtors[0].newInstance(sf.getCurrentSession());
+            System.out.println(sf);
+            return (D) cxtors[0].newInstance(sf);
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             throw new DaoInstantiationException(e);
         }
