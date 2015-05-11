@@ -7,7 +7,8 @@ public class UserService {
         User u = daoManager.processTransaction(new DaoCommand<User>() {
             @Override
             public User execute(DaoManager<?> manager) {
-                UserDao userDao = (UserDao) manager.getDao(UserDao.class);
+                // design to avoid casting
+                UserDao userDao = (UserDao) manager.getDaoWell(UserDao.class);
                 System.out.println(userDao);
                 return userDao.save(new User());
             }

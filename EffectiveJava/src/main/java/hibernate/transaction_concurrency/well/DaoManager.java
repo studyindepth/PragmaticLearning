@@ -2,8 +2,6 @@ package hibernate.transaction_concurrency.well;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -17,6 +15,7 @@ import org.hibernate.cfg.Configuration;
 public class DaoManager<D> {
     private final SessionFactory sf;
     private final ConcurrentMap<String, D> dao = new ConcurrentHashMap<>();
+    // map to cache dao instances
     private final Map<Class, Class> daoTypes = new ConcurrentHashMap<>();
 
     private DaoManager() {
@@ -29,14 +28,30 @@ public class DaoManager<D> {
     }
 
     public D getDao(Class<?> type) {
+        // this doesn't guarantee an invariant : instantiate a value and put it
+        // into the map only its key is not in the map
         D d = dao.get(type.getCanonicalName());
-        System.out.println(d);
         if (d == null) {
+            // may create multiple instances, the later are not put but used
             d = newDaoInstance(daoTypes.get(type));
-            System.out.println("=============>" + d);
             dao.putIfAbsent(type.getCanonicalName(), d);
         }
         return d;
+    }
+
+    public D getDaoWell(Class<?> type) {
+        // this doesn't guarantee an invariant : instantiate a value and put it
+        // into the map only its key is not in the map
+
+        // using two synchronization mechanisms
+        String key = type.getCanonicalName();
+        synchronized (this) {
+            if (!dao.containsKey(key)) {
+                D value = newDaoInstance(type);
+                dao.put(key, value);
+            }
+        }
+        return dao.get(key);
     }
 
     @SuppressWarnings("unchecked")
