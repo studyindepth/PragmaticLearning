@@ -29,10 +29,10 @@
 		<appender-ref ref="FILE" />
 		<appender-ref ref="STDOUT" />
 	</logger>
-	<turboFilter class="log.FatalFilter">
-		<Name>FATAL</Name>
-		<Marker>FATAL</Marker>
-		<onMatch>ACCEPT</onMatch>
-		<onMismatch>DENY</onMismatch>
-	</turboFilter>
+<!-- 	<turboFilter class="log.FatalFilter"> -->
+<!-- 		<Name>FATAL</Name> -->
+<!-- 		<Marker>FATAL</Marker> -->
+<!-- 		<onMatch>ACCEPT</onMatch> -->
+<!-- 		<onMismatch>DENY</onMismatch> -->
+<!-- 	</turboFilter> -->
 </configuration>

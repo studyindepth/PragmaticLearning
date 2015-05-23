@@ -5,31 +5,35 @@ import org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction;
 import org.hibernate.engine.transaction.spi.TransactionCoordinator;
 import org.hibernate.engine.transaction.spi.TransactionFactory;
 
-public class WellJDBCTransactionFactory implements TransactionFactory<JdbcTransaction> {
+public class WellJDBCTransactionFactory implements
+		TransactionFactory<JdbcTransaction> {
 
-    @Override
-    public JdbcTransaction createTransaction(TransactionCoordinator transactionCoordinator) {
-        return new JdbcTransaction(transactionCoordinator);
-    }
+	@Override
+	public JdbcTransaction createTransaction(
+			TransactionCoordinator transactionCoordinator) {
+		return null;
+	}
 
-    @Override
-    public boolean canBeDriver() {
-        return true;
-    }
+	@Override
+	public boolean canBeDriver() {
+		return true;
+	}
 
-    @Override
-    public ConnectionReleaseMode getDefaultReleaseMode() {
-        return ConnectionReleaseMode.ON_CLOSE;
-    }
+	@Override
+	public ConnectionReleaseMode getDefaultReleaseMode() {
+		return ConnectionReleaseMode.ON_CLOSE;
+	}
 
-    @Override
-    public boolean compatibleWithJtaSynchronization() {
-        return false;
-    }
+	@Override
+	public boolean compatibleWithJtaSynchronization() {
+		return false;
+	}
 
-    @Override
-    public boolean isJoinableJtaTransaction(TransactionCoordinator transactionCoordinator, JdbcTransaction transaction) {
-        return false;
-    }
+	@Override
+	public boolean isJoinableJtaTransaction(
+			TransactionCoordinator transactionCoordinator,
+			JdbcTransaction transaction) {
+		return false;
+	}
 
 }
