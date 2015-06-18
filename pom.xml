@@ -18,6 +18,9 @@
 		<module>SpringBoots</module>
 		<module>flywaydb</module>
 		<module>OOP-SOLID</module>
+		<module>HexagonalArchitecture</module>
+	<module></module>
+	<module>DI</module>
 	</modules>
 
 	<dependencies>
