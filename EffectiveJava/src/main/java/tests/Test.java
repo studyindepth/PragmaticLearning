@@ -11,11 +11,11 @@ public class Test {
     }
 }
 
-class Super {
+interface Super {
     public static int a = Test.init(1, "Super");
 
 }
 
-class Sub extends Super {
+interface Sub extends Super {
     public static int b = Test.init(2, "Sub");
 }
