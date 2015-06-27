@@ -20,6 +20,7 @@ public class Bird0 {
 
 	public float getSpeed() {
 		if (type == AFRICAN) {
+			
 			return baseSpeed + 100;
 		}
 

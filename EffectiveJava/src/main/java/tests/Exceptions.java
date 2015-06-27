@@ -5,6 +5,7 @@ public class Exceptions {
     public static void main(String[] args) throws ExA {
         AA b = new BB();
         System.out.println(b.compute(1, 1));
+        System.out.println(2^16);
     }
 }
 
@@ -17,7 +18,7 @@ class AA {
 
 class BB extends AA {
     @Override
-    float compute(int a, int b) {
+    float compute(int a, int b) throws ExA {
         return a * b;
     }
 
