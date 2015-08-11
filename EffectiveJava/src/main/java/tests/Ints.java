@@ -6,7 +6,7 @@ public class Ints {
     public static void main(String[] args) throws Exception {
         Integer a = 1;
         Integer b = 2;
-        Integer c = 1;
+        Integer c = a;
         Field f = Integer.class.getDeclaredField("value");
         f.setAccessible(true);
         f.set(a, 2);

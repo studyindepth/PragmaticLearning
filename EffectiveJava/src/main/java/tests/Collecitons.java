@@ -24,7 +24,7 @@ public class Collecitons {
                 deck.add(new Card(i.next(), j.next()));
     }
 
-    public class Card {
+    public static class Card {
         Suit suit;
         Rank rank;
 
